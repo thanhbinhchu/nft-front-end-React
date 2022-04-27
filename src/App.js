@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Base } from './templates/Base';
+import { Form } from './templates/Form';
+import {Table} from './templates/Table'
+import DatatablePage from './templates/TableMDB';
+import { TableNFTmdb } from './templates/TableNFTmdb';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div class='container | my-4'>
+        <Base />
+
+        <div class="container | my-4">
+            <Form />
+        </div>
+
+
+          {/* <div class="container-fluid p-0">
+              <Table />
+          </div> */}
+        <div>
+
+          <DatatablePage />
+
+          {/* <TableNFTmdb /> */}
+        </div>
+          
+
+
+      </div>
+
+
     </div>
   );
 }
