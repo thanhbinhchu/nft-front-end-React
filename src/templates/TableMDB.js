@@ -122,11 +122,12 @@ const DatatablePage = () => {
 
   return (
     <MDBDataTable 
-    scrollY
+    
     maxHeight="200px"
     striped 
     bordered 
     small 
+    hover
     data={data} />
    
   );

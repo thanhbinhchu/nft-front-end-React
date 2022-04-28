@@ -14,6 +14,30 @@ export const Table = () => {
         })
     }, [])
 
+    const [query,setQuery] = useState('')
+    
+    const searchNft = (nameNft) => {
+        setQuery(nameNft.target.value)}
+    
+
+    const listNft = posts.filter(nameNft => {
+        return (
+            nameNft.title.includes(query)
+        )
+    })
+
+
+    const selectType = (typeNft) => {
+        setQuery(typeNft.target.value)
+    }
+
+    const listTypeNft = posts.filter(typeNft => {
+        return (
+            typeNft.type.includes(query)
+        )
+    })
+
+
 return (
     <div class="container">
 
@@ -25,7 +49,7 @@ return (
                             <label>NFT</label>
                         </div>
                         <div class="col-sm-1">
-                            <input type = 'text' value = '' placeholder='Nom du NFT'></input>
+                            <input type ='text' value={query} onChange={searchNft} placeholder='Nom du NFT'></input>
                         </div>
                     </div>
 
@@ -35,12 +59,12 @@ return (
                             <label>Entre</label>
                         </div>
 
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             <input type='date'></input>
                         </div>
 
-                        <div class='col-sm-2 text-dark'>
-                            <label>A</label> 
+                        <div class='col-sm-1 text-dark'>
+                            <label>À</label> 
                         </div>
 
                         <div class='col-sm-1'>
@@ -55,12 +79,11 @@ return (
                         </div>
                          
                         <div class='col-sm-1'>
-                            <select>
-                            <option>Music</option>
-                            <option>Sport</option>
-                            <option>Trading card</option>
+                            <select value={query} onChange={selectType}>
+                            {listTypeNft.map((post)=> (
+                            <option key={post.mal_id}>{post.type}</option>
+                            ))}
                             </select>
-
                         </div>
 
                     </div>
@@ -97,8 +120,7 @@ return (
             </thead>
             <tbody>
                
-                {posts.map((post)=> {
-                return (
+                {listNft.map((post)=> (
                 <tr key={post.mail_id}> 
 
                 {/* <td> {post.id} </td>  */}
@@ -111,7 +133,7 @@ return (
                  
                 
         
-                </tr> )} 
+                </tr> )
                 )}
 
         
