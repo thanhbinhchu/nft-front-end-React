@@ -15,19 +15,22 @@ export const Table = () => {
     }, [])
 
 
-    const [query,setQuery] = useState('')
+    const [query,setQuery] = useState('') 
+
     
     const searchNft = (nameNft) => {
         setQuery(nameNft.target.value)}
-    
+
+    const lowerCased = query.toLowerCase();
 
     const listNft = posts.filter(nameNft => {
         return (
-            nameNft.title.includes(query)
+            nameNft.title.toLowerCase().includes(lowerCased)
         )
     })
 
-
+    
+    
     const selectType = (typeNft) => {
         setQuery(typeNft.target.value)
     }
@@ -51,7 +54,8 @@ return (
                         </div>
                         <div class="col-sm-1">
 
-                            <input type ='text' value={query} onChange={searchNft} placeholder='Nom du NFT'></input>
+                            <input type ='text' value={lowerCased} onChange={searchNft} placeholder='Nom du NFT'></input>
+
 
                         </div>
                     </div>
@@ -139,10 +143,7 @@ return (
                 <td> {post.type} </td>
                 <td> {post.rated} </td>
                 <td> {post.members} </td>
-                 
-
-                </tr> )
-
+                                 </tr> )
                 )}
 
         
