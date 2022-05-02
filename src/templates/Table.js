@@ -14,7 +14,9 @@ export const Table = () => {
         })
     }, [])
 
+
     const [query,setQuery] = useState('') 
+
     
     const searchNft = (nameNft) => {
         setQuery(nameNft.target.value)}
@@ -51,7 +53,10 @@ return (
                             <label>NFT</label>
                         </div>
                         <div class="col-sm-1">
+
                             <input type ='text' value={lowerCased} onChange={searchNft} placeholder='Nom du NFT'></input>
+
+
                         </div>
                     </div>
 
@@ -61,12 +66,14 @@ return (
                             <label>Entre</label>
                         </div>
 
+
                         <div class="col-sm-2">
                             <input type='date'></input>
                         </div>
 
                         <div class='col-sm-1 text-dark'>
                             <label>À</label> 
+
                         </div>
 
                         <div class='col-sm-1'>
@@ -81,11 +88,13 @@ return (
                         </div>
                          
                         <div class='col-sm-1'>
+
                             <select value={query} onChange={selectType}>
                             {listTypeNft.map((post)=> (
                             <option key={post.mal_id}>{post.type}</option>
                             ))}
                             </select>
+
                         </div>
 
                     </div>
@@ -122,7 +131,9 @@ return (
             </thead>
             <tbody>
                
+
                 {listNft.map((post)=> (
+
                 <tr key={post.mail_id}> 
 
                 {/* <td> {post.id} </td>  */}
@@ -132,10 +143,7 @@ return (
                 <td> {post.type} </td>
                 <td> {post.rated} </td>
                 <td> {post.members} </td>
-                 
-                
-        
-                </tr> )
+                                 </tr> )
                 )}
 
         
